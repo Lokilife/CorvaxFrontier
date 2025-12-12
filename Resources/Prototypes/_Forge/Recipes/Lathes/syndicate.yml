@@ -325,14 +325,6 @@
     CreditCounterfeit: 8000
 
 - type: latheRecipe
-  id: ClothingOuterHardsuitSyndieSSTRecipe
-  categories: [SyndicateTradingConsoleMeleeArmor]
-  result: ClothingOuterHardsuitSyndieSST
-  completetime: 1
-  materials:
-    CreditCounterfeit: 299999
-
-- type: latheRecipe
   id: ClothingOuterHardsuitJuggernautRecipe
   categories: [SyndicateTradingConsoleMeleeArmor]
   result: ClothingOuterHardsuitJuggernaut
