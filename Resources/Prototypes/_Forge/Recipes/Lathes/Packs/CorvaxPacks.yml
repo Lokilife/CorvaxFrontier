@@ -164,7 +164,6 @@
   id: SyndicateTradingConsoleArmor
   recipes:
   - ClothingOuterHardsuitJuggernautRecipe
-  - ClothingOuterHardsuitSyndieSSTRecipe
   - ClothingHandsGlovesCombatSyndicateRecipe
   - ClothingOuterVestWebRecipe
   - ClothingOuterHardsuitTacticalMaidRecipe
