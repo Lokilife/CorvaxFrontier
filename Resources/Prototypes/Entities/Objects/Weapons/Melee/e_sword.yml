@@ -434,10 +434,10 @@
         volume: 3
         variation: 0.250
     activatedDamage:
-        types:
-            Slash: 12
-            Heat: 12
-            Structural: 15
+        types: # Corvax-Forge: Balance double-esword
+            Slash: 21
+            Heat: 21
+            Structural: 21
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -472,7 +472,7 @@
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect
-    reflectProb: .75
+    reflectProb: .25 # Corvax-Forge: Balance double-esword
     spread: 75
 
 # Item will look weird in handslot. Will need to adjust handstorage visuals in a future PR
