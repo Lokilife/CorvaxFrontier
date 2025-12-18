@@ -17,7 +17,6 @@
   displayWeight: 40
   setPreference: true
   salary: 10000
-  salaryInterval: 10
   access:
   - Medical
   accessGroups:
