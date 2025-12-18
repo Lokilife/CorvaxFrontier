@@ -12,6 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Server.Player;
 using Content.Shared.Roles;
 using Robust.Shared.Timing;
+using Content.Server.Access.Components;
 
 namespace Content.Server._Forge.AutoSalarySystem;
 
@@ -110,8 +111,14 @@ public sealed class AutoSalarySystem : EntitySystem
             if (!TryComp<PdaComponent>(ent, out var pda))
                 continue;
 
-            if (pda.ContainedId != null && TryComp(pda.ContainedId, out id))
-                return true;
+            if (pda.ContainedId != null)
+            {
+                if (HasComp<AgentIDCardComponent>(pda.ContainedId))
+                    return false;
+
+                if (TryComp(pda.ContainedId, out id))
+                    return true;
+            }
         }
 
         return true;
