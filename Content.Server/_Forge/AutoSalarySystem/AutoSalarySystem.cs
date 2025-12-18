@@ -36,7 +36,10 @@ public sealed class AutoSalarySystem : EntitySystem
         var query = EntityQueryEnumerator<AutoSalaryComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (!_proto.TryIndex(comp.Job, out var job))
+            if (!TryGetIdCard(uid, out var id) || id == null)
+                continue;
+
+            if (!_proto.TryIndex(id.JobPrototype, out var job))
                 continue;
 
             if (comp.LastSalaryAt + job.SalaryInterval > _timing.CurTime)
@@ -62,7 +65,6 @@ public sealed class AutoSalarySystem : EntitySystem
 
         var comp = EnsureComp<AutoSalaryComponent>(uid);
         comp.LastSalaryAt = _timing.CurTime; // just not to pay salary just when player spawned
-        comp.Job = ev.JobId;
     }
 
     private bool HasActivePlayer(EntityUid body)
@@ -81,8 +83,6 @@ public sealed class AutoSalarySystem : EntitySystem
         if (IsEntityDead(body))
             return true;
         if (!HasActivePlayer(body))
-            return true;
-        if (!TryGetIdCard(body, out var id) || id == null)
             return true;
         return false;
     }
